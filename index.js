@@ -84,10 +84,14 @@ function handleSortChecked(){
 
 //2. This will filter for the search value
 
+
 function handleSearch () {
   $('#js-shopping-list-form').on('click', '.js-search-button', event => {
     event.preventDefault();
     console.log('Search button clicked.');
+    STORE.searchVal = $('.js-shopping-list-entry').val();
+    $('.js-shopping-list-entry').val('');
+    
     renderShoppingList();
   });
 }
