@@ -63,16 +63,21 @@ function renderShoppingList() {
 
 // 1. These few blocks will check for filtering out checked items
 
-function toggleCheck(){
-  STORE.checkFilter = true;
+function checkSTORECheck (checkProperty) { 
+  if (checkProperty === true){
+    STORE.checkFilter = true;
+  } else {
+    STORE.checkFilter = false;
+  }
+  console.log($('.hide-checked-items').prop('checked'));
 }
 
 function handleSortChecked(){
   $('#hide-checked-items').on('change', '.hide-checked-items', function (event) {
     event.preventDefault();
-    STORE.checkFilter = true; 
-
+    checkSTORECheck($('.hide-checked-items').prop('checked'));
     console.log('handleSortChecked button has been clicked');
+    console.log(STORE.checkFilter);
     renderShoppingList();
   });
 }
