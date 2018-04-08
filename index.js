@@ -60,7 +60,6 @@ function renderShoppingList() {
 
 // Below here are for filtering through the items
 
-
 // 1. These few blocks will check for filtering out checked items
 
 function checkSTORECheck (checkProperty) { 
@@ -96,10 +95,7 @@ function handleSearch () {
   });
 }
 
-
-
 // Below here are for editing invidual elements 
-
 
 // 1. adding new items: 
 function addItemToShoppingList(itemName) {
@@ -175,7 +171,6 @@ function handleEditItem(){
     renderShoppingList();
   });
 }
-
 
 
 function handleShoppingList() {
