@@ -44,11 +44,11 @@ function renderShoppingList() {
   console.log('`renderShoppingList` ran');
   let printedShoppingList = STORE.items;
   if (STORE.checkFilter === true) {
-    printedShoppingList = STORE.items.filter( item => item.checked === false);
+    printedShoppingList = STORE.items.filter( items => items.checked === false);
     //checks if the filter for checked items is on
     //then will set the printedShoppingList array to the filtered array
   } else if(STORE.searchVal !== '' && STORE.checkFilter === false) {
-    printedShoppingList = STORE.items.filter( item => item.name === STORE.searchVal);
+    printedShoppingList = STORE.items.filter( items => items.name === STORE.searchVal);
     //will check if there is an input in the searchVal
     //then will filter the elements with the search value only
   }
