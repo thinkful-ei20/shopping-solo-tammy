@@ -25,7 +25,7 @@ function generateItemElement(item, itemIndex) {
             <span class="button-label">delete</span>
         </button>
         <input type="text" name="edit-item" class="edit-item" placeholder="Edit item name">
-        <button type="button" id="edit-item-button"> Edit</button>  
+        <button type="button" id="edit-item-button"> Edit </button>  
       </div>
     </li>`;
 }
@@ -83,6 +83,15 @@ function handleSortChecked(){
 }
 
 //2. This will filter for the search value
+
+function handleSearch () {
+  $('#js-shopping-list-form').on('click', '.js-search-button', event => {
+    event.preventDefault();
+    console.log('Search button clicked.');
+    renderShoppingList();
+  });
+}
+
 
 
 // Below here are for editing invidual elements 
@@ -146,15 +155,19 @@ function handleDeleteItemClicked() {
 
 // 4. Change the name of an item
 
-function changeTitle(newItemName,index){
+function replaceItemName(newItemName,index){
+  //passes newItemName and index
   STORE.items[index].name = newItemName; 
+  //look into index of item array, access the name property of the obj, change to new value
 }
 
 function handleEditItem(){
   $('.js-shopping-list').on('click', '#edit-item-button', event => {
     const newItemName = $(event.currentTarget).closest('li').find('.edit-item').val();
+    // takes the value from the input
     const index = $(event.currentTarget).closest('li').data('item-index');
-    changeTitle(newItemName,index);
+    //takes the value from the class and converts it to a number to index in array w/ function above
+    replaceItemName(newItemName,index);
     renderShoppingList();
   });
 }
@@ -168,6 +181,7 @@ function handleShoppingList() {
   handleDeleteItemClicked();
   handleSortChecked();
   handleEditItem();
+  handleSearch ();
 }
 
 $(handleShoppingList);
